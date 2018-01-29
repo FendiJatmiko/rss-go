@@ -16,7 +16,7 @@ func Run(searchTerm string) {
 	}
 
 	//Create unBuffered channel to receive match results
-	results := make(chan *results)
+	results := make(chan *Result)
 	//set wait group to sync the process
 	var wg sync.WaitGroup
 
@@ -33,14 +33,12 @@ func Run(searchTerm string) {
 		}
 
 		// Launch the goroutine to perform the search.
+		go func(matcher Matcher, feed *Feed) {
+			wg.Done()
+			Match(matcher, feed, searchTerm, results)
 
+		}(matcher, feed)
 	}
-
-	go func(matcher Matcher, feed *Feed) {
-
-		Match(mathcer, feed, searchTerm, results)
-		wg.Done()
-	}(matcher, feed)
 
 	go func() {
 		// Wait for everything to be processed

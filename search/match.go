@@ -19,7 +19,7 @@ type Matcher interface {
 
 // Match is launched as a goroutine for each individual feed to run
 // searcher concurrently
-func Match(matchers Matcher, feed *Feed, searchTerm string, results chan<- *Results) {
+func Match(matcher Matcher, feed *Feed, searchTerm string, results chan<- *Result) {
 
 	// Perform the search against the specified mathcer.
 	searchResults, err := matcher.Search(feed, searchTerm)
