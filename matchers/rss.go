@@ -98,7 +98,7 @@ func (m rssMatcher) retrieve(feed *search.Feed) (*rssDocument, error) {
 func (m rssMatcher) Search(feed *search.Feed, searchTerm string) ([]*search.Result, error) {
 	var results []*search.Result
 
-	log.Printf("Search Feed Type[%s] Site[%s] For Uri[%s]\n", feed.Type, fee.Name, feed.URI)
+	log.Printf("Search Feed Type[%s] Site[%s] For Uri[%s]\n", feed.Type, feed.Name, feed.URI)
 	//Retrive the data to search.
 	document, err := m.retrieve(feed)
 	if err != nil {
