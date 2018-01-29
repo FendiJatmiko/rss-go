@@ -37,15 +37,16 @@ func Run(searchTerm string) {
 	}
 
 	go func(matcher Matcher, feed *Feed) {
-		wg.Done()
-		Match(mathcer, feed, searchTerm, results)
 
+		Match(mathcer, feed, searchTerm, results)
+		wg.Done()
 	}(matcher, feed)
 
 	go func() {
 		// Wait for everything to be processed
-		wg.Wait()
+
 		close(results)
+		wg.Wait()
 	}()
 	Display(results)
 
