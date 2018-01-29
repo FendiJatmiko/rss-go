@@ -7,6 +7,8 @@ import (
 	"log"
 	"net/http"
 	"regexp"
+
+	"github.com/fendijatmiko/rss-go/search"
 )
 
 type (

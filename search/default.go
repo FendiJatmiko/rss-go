@@ -10,6 +10,6 @@ func init() {
 }
 
 // Search implement the behavior for the default matcher.
-func (m defaultMatcher) Search(feed *Feed, searchTerm string) ([]*Result, err) {
+func (m defaultMatcher) Search(feed *Feed, searchTerm string) ([]*Result, error) {
 	return nil, nil
 }
