@@ -16,7 +16,7 @@
     },
     {
         "site" : "nbcnews",
-        "link" : "http://feeds.nbcnes.com/feeds/topstories",
+        "link" : "http://feeds.nbcnews.com/feeds/topstories",
         "type" : "rss"
     }
 ]
